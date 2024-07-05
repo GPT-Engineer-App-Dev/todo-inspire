@@ -36,8 +36,8 @@ const Sidebar = () => (
     <div className="flex h-full max-h-screen flex-col gap-2">
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
         <NavLink to="/" className="flex items-center gap-2 font-semibold">
-          <Package2 className="h-6 w-6" />
-          <span>Acme Inc</span>
+          <img src="/logo.png" alt="TodoMaster Logo" className="h-6 w-6" />
+          <span>TodoMaster</span>
         </NavLink>
       </div>
       <div className="flex-1">
@@ -49,6 +49,9 @@ const Sidebar = () => (
             </SidebarNavLink>
           ))}
         </nav>
+      </div>
+      <div className="border-t p-4">
+        <UserDropdown />
       </div>
     </div>
   </div>
@@ -68,11 +71,12 @@ const MobileSidebar = () => (
           to="/"
           className="flex items-center gap-2 text-lg font-semibold mb-4"
         >
-          <Package2 className="h-6 w-6" />
-          <span className="sr-only">Acme Inc</span>
+          <img src="/logo.png" alt="TodoMaster Logo" className="h-6 w-6" />
+          <span className="sr-only">TodoMaster</span>
         </NavLink>
         {navItems.map((item) => (
           <SidebarNavLink key={item.to} to={item.to}>
+            {item.icon}
             {item.title}
           </SidebarNavLink>
         ))}
